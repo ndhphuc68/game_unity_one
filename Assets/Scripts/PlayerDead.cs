@@ -5,6 +5,8 @@ public class PlayerDead : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody2D rigidbody;
+
+    [SerializeField] private AudioSource audioSource;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -23,6 +25,7 @@ public class PlayerDead : MonoBehaviour
 
     private void Dead()
     {
+        audioSource.Play();
         rigidbody.bodyType = RigidbodyType2D.Static;
         animator.SetTrigger("player_dead");
     }
